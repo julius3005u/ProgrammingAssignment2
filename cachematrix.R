@@ -22,17 +22,17 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Find the inverse of matrix set with makeCacheMatrix
-## changing things appropriately in cachemean
+## changing things appropriately in cachemean example
 
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   m <- x$getminv()
   if(!is.null(m)) {
-    message("getting cached data")
+    message("getting cached data") ## if the inverse exists
     return(m)
   }
-  data <- x$get()
-  m <- solve(data, ...)
+  data <- x$get() ## if the inverse does not exist.
+  m <- solve(data, ...) ## solve is an R function
   x$setminv(m)
   m
 }
